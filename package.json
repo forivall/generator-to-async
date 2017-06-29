@@ -1,16 +1,16 @@
 {
-  "name": "node-module-template",
+  "name": "generator-to-async",
   "version": "0.0.0",
-  "description": "$DESCRIPTION",
+  "description": "Babel's generator-to-async helper, also with any-promise",
   "license": "ISC",
   "author": "Emily Marigold Klassen <forivall@gmail.com>",
-  "homepage": "https://github.com/forivall/$NAME",
+  "homepage": "https://github.com/forivall/generator-to-async",
   "repository": {
     "type": "git",
-    "url": "git@github.com:forivall/$NAME.git"
+    "url": "git@github.com:forivall/generator-to-async.git"
   },
   "bugs": {
-    "url": "https://github.com/forivall/$NAME/issues"
+    "url": "https://github.com/forivall/generator-to-async/issues"
   },
   "scripts": {
     "lint": "xo",
@@ -27,7 +27,9 @@
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
   },
-  "dependencies": {},
+  "dependencies": {
+    "any-promise": "^1.3.0"
+  },
   "bundledDependencies": [],
   "peerDependencies": {},
   "devDependencies": {
@@ -40,9 +42,10 @@
   },
   "xo": {
     "extends": [
-      "mxo"
+      "mxo/es5"
     ],
-    "ignores": [,
+    "esnext": false,
+    "ignores": [
       "**/fixtures/**"
     ],
     "overrides": [
