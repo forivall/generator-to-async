@@ -1,6 +1,6 @@
 {
   "name": "generator-to-async",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Babel's generator-to-async helper, also with any-promise",
   "license": "ISC",
   "author": "Emily Marigold Klassen <forivall@gmail.com>",
