@@ -12,11 +12,11 @@ test('it catches errors', async (t) => {
   await t.throws(generatorToAsync.resolve((function * errorOut() {
     // eslint-disable-next-line no-undef
     yield throwReferenceError
-  })()), 42)
+  })()))
 })
 
 test('it catches rejections', async (t) => {
-  await t.throws(await generatorToAsync.resolve((function * passthrough(v) {
+  await t.throws(generatorToAsync.resolve((function * passthrough(v) {
     return yield v
   })(require('any-promise').reject(new Error('foo')))))
 })
