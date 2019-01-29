@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import generatorToAsync from './index'
+import generatorToAsync from '.'
 
 test('it works', async (t) => {
   t.is(await generatorToAsync(function * passthrough(v) {

@@ -19,8 +19,8 @@ function resolveGenerator(gen) {
       try {
         info = gen[key](arg);
         value = info.value;
-      } catch (err) {
-        reject(err);
+      } catch (error) {
+        reject(error);
         return;
       }
       if (info.done) {

@@ -33,7 +33,8 @@
   "lint-staged": {
     "linters": {
       "*.js": "xo"
-    }
+    },
+    "relative": true
   },
   "prettier": {
     "arrowParens": "always",
@@ -90,7 +91,8 @@
         ],
         "extends": [
           "mxo/ava"
-        ]
+        ],
+        "esnext": true
       }
     ],
     "rules": {
