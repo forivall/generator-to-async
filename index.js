@@ -32,7 +32,7 @@ function resolveGenerator(gen) {
           },
           function(err) {
             step('throw', err)
-          },
+          }
         )
       }
     }

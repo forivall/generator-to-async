@@ -25,8 +25,8 @@ test('it catches errors', async (t) => {
       (function* errorOut() {
         // eslint-disable-next-line no-undef
         yield throwReferenceError
-      })(),
-    ),
+      })()
+    )
   )
 })
 
@@ -35,7 +35,7 @@ test('it catches rejections', async (t) => {
     generatorToAsync.resolve(
       (function* passthrough(v) {
         return yield v
-      })(require('any-promise').reject(new Error('foo'))),
-    ),
+      })(require('any-promise').reject(new Error('foo')))
+    )
   )
 })

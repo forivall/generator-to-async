@@ -43,7 +43,7 @@
     "semi": false,
     "singleQuote": true,
     "tabWidth": 2,
-    "trailingComma": "all",
+    "trailingComma": "es5",
     "useTabs": false
   },
   "dependencies": {
@@ -93,8 +93,7 @@
         "esnext": true,
         "extends": [
           "mxo/ava"
-        ],
-        "esnext": true
+        ]
       }
     ],
     "rules": {
