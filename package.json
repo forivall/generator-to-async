@@ -73,6 +73,7 @@
     }
   },
   "xo": {
+    "prettier": true,
     "extends": [
       "mxo/es5"
     ],
@@ -89,6 +90,7 @@
           "**/__tests__/**",
           "**/*.test.js"
         ],
+        "esnext": true,
         "extends": [
           "mxo/ava"
         ],
