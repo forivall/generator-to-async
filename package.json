@@ -18,7 +18,6 @@
     "format:import-sort": "import-sort --write '**/*.js'",
     "format:prettier": "prettier --write '**/*.js'",
     "lint": "xo",
-    "lint-staged": "lint-staged",
     "test": "ava",
     "posttest": "npm run lint",
     "test-ci": "npm run test-cov",
