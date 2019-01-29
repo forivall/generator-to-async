@@ -1,6 +1,6 @@
 {
   "name": "generator-to-async",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Babel's generator-to-async helper, also with any-promise",
   "keywords": [],
   "homepage": "https://github.com/forivall/generator-to-async",
