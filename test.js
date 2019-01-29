@@ -5,14 +5,27 @@ import generatorToAsync from '.'
 test('it works', async (t) => {
   t.is(
     await generatorToAsync(function* passthrough(v) {
-      return yield v
+      const ret = yield v
+      return ret
     })(42),
     42,
   )
 })
 
+test('resolve works', async (t) => {
+  t.is(
+    await generatorToAsync.resolve(
+      (function* passthrough(v) {
+        const ret = yield v
+        return ret
+      })(42),
+    ),
+    42,
+  )
+})
+
 test('it catches errors', async (t) => {
-  await t.throws(
+  await t.throwsAsync(
     generatorToAsync.resolve(
       (function* errorOut() {
         // eslint-disable-next-line no-undef
@@ -23,7 +36,7 @@ test('it catches errors', async (t) => {
 })
 
 test('it catches rejections', async (t) => {
-  await t.throws(
+  await t.throwsAsync(
     generatorToAsync.resolve(
       (function* passthrough(v) {
         return yield v
