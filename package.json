@@ -2,44 +2,75 @@
   "name": "generator-to-async",
   "version": "1.0.0",
   "description": "Babel's generator-to-async helper, also with any-promise",
-  "license": "ISC",
-  "author": "Emily Marigold Klassen <forivall@gmail.com>",
+  "keywords": [],
   "homepage": "https://github.com/forivall/generator-to-async",
+  "bugs": {
+    "url": "https://github.com/forivall/generator-to-async/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:forivall/generator-to-async.git"
   },
-  "bugs": {
-    "url": "https://github.com/forivall/generator-to-async/issues"
-  },
+  "license": "ISC",
+  "author": "Emily Marigold Klassen <forivall@gmail.com>",
   "scripts": {
+    "format": "npm run format:import-sort && npm run format:prettier",
+    "format:import-sort": "import-sort --write '**/*.js'",
+    "format:prettier": "prettier --write '**/*.js'",
     "lint": "xo",
     "lint-staged": "lint-staged",
-    "inspect": "if-node-version '>=6' jsinspect",
     "test": "ava",
-    "posttest": "npm run lint && npm run inspect",
-    "test-cov": "nyc ava",
-    "posttest-cov": "npm run posttest",
+    "posttest": "npm run lint",
     "test-ci": "npm run test-cov",
-    "posttest-ci": "nyc report --reporter=text-lcov | coveralls"
+    "posttest-ci": "nyc report --reporter=text-lcov | coveralls",
+    "test-cov": "nyc ava",
+    "posttest-cov": "npm run posttest"
   },
-  "keywords": [],
-  "publishConfig": {
-    "registry": "http://registry.npmjs.org"
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx -p node@8 lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": "xo"
+    }
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSpacing": false,
+    "printWidth": 89,
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
   },
   "dependencies": {
     "any-promise": "^1.3.0"
   },
-  "bundledDependencies": [],
-  "peerDependencies": {},
   "devDependencies": {
-    "ava": "^0.20.0",
-    "coveralls": "^2.11.14",
-    "eslint-config-mxo": "^0.5.3",
-    "if-node-version": "^1.1.1",
-    "jsinspect": "^0.12.6",
-    "nyc": "^11.0.3",
-    "xo": "^0.18.0"
+    "ava": "^1.2.0",
+    "coveralls": "^3.0.2",
+    "eslint-config-mxo": "^0.7.0",
+    "husky": "^1.3.1",
+    "import-sort-cli": "^5.2.0",
+    "import-sort-parser-babylon": "^5.2.0",
+    "import-sort-style-module": "^5.0.0",
+    "lint-staged": "^8.1.1",
+    "nyc": "^13.1.0",
+    "prettier": "^1.16.1",
+    "xo": "^0.24.0"
+  },
+  "peerDependencies": {},
+  "bundleDependencies": [],
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
+  "importSort": {
+    ".js": {
+      "style": "module"
+    }
   },
   "xo": {
     "extends": [
@@ -62,6 +93,21 @@
           "mxo/ava"
         ]
       }
-    ]
+    ],
+    "rules": {
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "test/**",
+            "test.js",
+            "test-*.js",
+            "**/__tests__/**",
+            "**/*.test.js",
+            "scripts/**"
+          ]
+        }
+      ]
+    }
   }
 }
